@@ -12,7 +12,7 @@
     <h1>Car Price Prediction</h1>
     <form action="/predict" method = "POST" style ="text-align: center;">
       
-        <div style="text-align: center"> <label>Enter Make</label>
+        <div style="text-align: center"> <h4><label>Enter Make</label></h4>
          <select class="selectpicker form-control" id='Make' name='Make' required="1"
                                         onchange="load_car_models(this.id,'Make')">
            {% for Make in Make %}
@@ -20,7 +20,7 @@
            {% endfor %}
             </select></div>
       
-        <div style="text-align: center"><label>Enter Model</label>
+        <div style="text-align: center"><h4><label>Enter Model</label></h4>
         <select class="selectpicker form-control" id="Model" name="Model" required="1"
                                 onchange="load_car_models(this.id,'Model')">
             {% for Model in Model %}
@@ -28,21 +28,21 @@
             {% endfor %}
             </select></div>
       
-        <div style="text-align: center"><label>Year of Manufacturing</label>
+        <div style="text-align: center"><h4><label>Year of Manufacturing</label></h4>
         <select class="selectpicker form-control" id="Year" name="Year" required="1">
             {% for Year in Year %}
             <option value="{{ Year }}">{{ Year }}</option>
             {% endfor %}
             </select></div>
       
-        <div style="text-align: center"><label>Enter Usage Level</lable>
+        <div style="text-align: center"></h4><label>Enter Usage Level</lable></h4>
         <select class="selectpicker form-control" id="Usage_level" name="Usage_level" required="1">
              {% for Usage_level in Usage_level %}
              <option value="{{ Usage_level }}">{{ Usage_level }}</option>
               {% endfor %}
             </select></div>
       
-        <div style="text-align: center"><label>Enter Mileage</label>
+    <div style="text-align: center"></h4><label>Enter Mileage</label></h4>
         <input type ="text" name = "Mileage" style = "margin: 0 auto;" placeholder = "Enter the mileage in 10k"></div>
         
         <button type="submit">Predict</button>
