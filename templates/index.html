@@ -18,7 +18,7 @@
            {% for Make in Make %}
            <option value="{{ Make }}">{{ Make }}</option>
            {% endfor %}
-    </select></div>
+            </select></div></div>
       
         <div style="text-align: center"><label>Enter Model</label>
         <select class="selectpicker form-control" id="Model" name="Model" required="1"
@@ -26,28 +26,30 @@
             {% for Model in Model %}
              <option value="{{ Model }}">{{ Model }}</option>
             {% endfor %}
-        </select></div>
+            </select></div></div>
       
         <div style="text-align: center"><label>Year of Manufacturing</label>
         <select class="selectpicker form-control" id="Year" name="Year" required="1">
             {% for Year in Year %}
             <option value="{{ Year }}">{{ Year }}</option>
             {% endfor %}
-        </select></div>
+            </select></div></div>
       
         <div style="text-align: center"><label>Enter Usage Level</lable>
         <select class="selectpicker form-control" id="Usage_level" name="Usage_level" required="1">
              {% for Usage_level in Usage_level %}
              <option value="{{ Usage_level }}">{{ Usage_level }}</option>
               {% endfor %}
-         </select></div>
+            </select></div></div>
       
         <div style="text-align: center"><label>Enter Mileage</label>
         <input type ="text" name = "Mileage" style = "margin: 0 auto;" placeholder = "Enter the mileage in 10k"></div>
         
-        <button type="submit">Predict</button>
+        <h4><button type="submit">Predict</button></h4>
             
     </form>
-
+ <cite>
+            By Rashmi Raut
+ </cite>
 </body>
 </html>
