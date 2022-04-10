@@ -1,6 +1,7 @@
 
 body {
-    background-color: #f5f1a4;
+    background-image: url(/static/bg.png);
+    background-size: 100%;
     text-align: center;
 }
 
