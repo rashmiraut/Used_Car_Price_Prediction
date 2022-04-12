@@ -11,33 +11,38 @@ app = Flask(__name__)
 model=pickle.load(open('GBR.pkl','rb'))
 car=pd.read_csv('df_full.csv')
 
-@app.route('/', methods=['Get', 'POST'])
+@app.route('/',methods=['GET','POST'])
 def index():
-    make = sorted(car['Make'].unique())
-    model = car['Model'].unique()
-    year = sorted(car['Year'].unique(), reverse=True)
-    mileage = car['Mileage'].unique()
-
-    return render_template('index.html', make=make, models=model, years=year, mileage=mileage)
-
-
-@app.route("/predict", methods=["POST"])
+    Make=sorted(car['Make'].unique())
+    Model=sorted(car['Model'].unique())
+    Year=sorted(car['Year'].unique(),reverse=True)
+    Usage_level=car['Usage_level'].unique()
+    
+    Make.insert(0,'Select Your Car Manufacturer')
+    return render_template('index.html',Make=Make, Model=Model, Year=Year,Usage_level=Usage_level)
+    
+@app.route('/predict',methods=['POST'])
+@cross_origin()
 def predict():
-    make = request.form.get("make")
-    model = request.form.get('model')
-    year = request.form.get('year')
-    mileage = request.form.get('mileage')
+    Make=request.form.get('Make')
 
-    data = {'Make': make,
-            'Model': model,
-            'Year': year,
-            'Mileage': mileage, }
+    Model=request.form.get('Model')
+    Year=request.form.get('Year')
+    
+    Usage_level=request.form.get('Usage_level')
+    Mileage=request.form.get('Mileage')
+    
+    prediction=model.predict(pd.DataFrame(columns=['Year', 'Mileage', 'Make', 'Model','Usage_level'],
+                              data=np.array([Year, Mileage, Make, Model,Usage_level]).reshape(1, 5)))
+    print(prediction)
+    
+    return str(np.round(prediction[0],2))
 
-    features = pd.DataFrame(data, index=[0])
-    pred = load_lr.predict(features)
 
-    return render_template("predict.html", prediction=np.round(pred[0], 2))
+@app.route("/predict", methods=['POST'])
+def pred():
+    return render_template("predict.html")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True)
