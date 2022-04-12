@@ -28,7 +28,7 @@
             {% endfor %}
             </select></div>
       
-        <div style="text-align: center"><h4><label>Year of Manufacturing</label></h4>
+        <div style="text-align: center"><h4><label>Year</label></h4>
         <select class="selectpicker form-control" id="Year" name="Year" required="1">
             {% for Year in Year %}
             <option value="{{ Year }}">{{ Year }}</option>
@@ -42,11 +42,55 @@
               {% endfor %}
             </select></div>
       
-    <div style="text-align: center"></h4><label>Enter Mileage</label></h4>
-        <input type ="text" name = "Mileage" style = "margin: 0 auto;" placeholder = "Enter the mileage in 10k"></div>
+        <div class="mb-3">
+                <label class="form-label">Mileage</label>
+                <input class="selectpicker form-control" type="text" name="mileage" style="margin: 0 auto;">
+            </div>
         
-        <button type="submit">Predict</button>
+        <button type="submit" class="btn btn-primary">Predict</button>
             
     </form>
 </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Deployment</title>
+</head>
+
+<body>
+    <h1>Used Car Price Prediction</h1>
+    <form action="/predict" method="POST" style="text-align: center;">
+        <label>Enter Car Make</label></br>
+        <select class="selectpicker form-control" id="make" name="make" required="1">
+            {% for company in make %}
+            <option value="{{ company }}">{{ company }}</option>
+            {% endfor %}
+        </select></br>
+        <label>Enter Car Model</label></br>
+        <select class="selectpicker form-control" id="model" name="model" required="1">
+            {% for model in models %}
+            <option value="{{ model }}">{{ model }}</option>
+            {% endfor %}
+        </select></br>
+        <label>Enter Year</label></br>
+        <select class="selectpicker form-control" id="year" name="year" required="1">
+            {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select></br>
+        <label>Enter Mileage</lable>
+            <input type="text" name="mileage" style="margin: 0 auto;">
+            <button type="submit">Predict</button>
+
+    </form>
+
+</body>
+
 </html>
