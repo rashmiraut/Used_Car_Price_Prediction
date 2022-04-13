@@ -36,7 +36,7 @@ Vin: Vehicle identification number of the car
 
 For the modeling, Price is considered as the dependent variable. Year, Mileage, Make and Model are the independent variables.
 
-The gradient booster model has an accuracy of 86%
+The gradient booster model has an accuracy of 90%
 
 ## Deployment
 
